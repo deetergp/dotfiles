@@ -1,0 +1,45 @@
+[user]
+	name = Scott Deeter
+	email = scott@deeters.net
+
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+
+[github]
+	user = deetergp
+	token = ???
+
+[apply]
+	whitespace = nowarn
+
+[alias]
+  lg = log --all --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an)%Creset' --abbrev-commit
+  fa = fetch --all
+  rdm = rebase development/master
+  pom = push origin master
+  co = checkout
+  ds = diff --staged
+  st = status -sb
+  amend = commit --amend -C HEAD
+  undo = reset --soft HEAD^
+  standup = log --since '1 day ago' --oneline --author <scott@scottdeeter.com>
+[mergetool]
+	keepBackup = true
+	trustExitCode = true
+	prompt = false
+[color]
+	ui = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
+[init]
+	templatedir = ~/.git_template

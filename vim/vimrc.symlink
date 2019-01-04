@@ -1,0 +1,212 @@
+" ========== ATTRIBUTION ==========
+
+" Most of the contents of this .vimrc came from people other sources.
+"   http://amix.dk/vim/vimrc.html
+"   http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+"   http://www.drbunsen.org/the-text-triumvirate/
+"   https://github.com/jlong/tilde/blob/master/.vimrc
+
+" ========== INSTALLATION ===========
+"
+" To install these Vundle packages, follow these steps:
+"
+" 1. Symlink this file to `~/.vimrc`
+" 2. Clone Vundle: `git clone https://github.com/VundleVim/Vundle.vim.git
+" ~/.vim/bundle/Vundle.vim`
+" 3. Launch `vim` and run `:PluginInstall`
+
+" ========== PREAMBLE ==========
+
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible                  " Not interested in vi compatibility
+filetype off                      " Required for Vundle
+
+" ========== KEY BINDINGS ==========
+
+" Change leader to a comma because the backslash is too far away
+" That means all \x commands turn into ,x
+" The mapleader has to be set before vundle starts loading all the plugins.
+let mapleader=","
+
+" Uses <leader><space> to clear highlights. (e.g.: search highlights)
+map <silent> <leader><space> :noh<cr>
+
+" Toggle line numbers.
+nmap <F3> :set nunumber!<CR>
+
+" Toggle word wrap.
+nmap <F4> :set nowrap!<CR>
+
+" ========== VUNDLE ==========
+
+" Set the runtime path to include Vundle and initialize.
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" Alternatively, you can pass a path where Vundle should install plugins.
+" call vundle#begin('~/some/path/here')
+
+" Let Vundle manage Vundle. Required.
+Plugin 'gmarik/Vundle.vim'        " Let Vundle manage Vundle (required)
+
+" IDE-like features
+Plugin 'airblade/vim-gitgutter'   " Keep track changes in git
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'kchmck/vim-coffee-script' " Syntax highlighting for CoffeeScript
+Plugin 'kien/ctrlp.vim'           " Easily open files
+Plugin 'majutsushi/tagbar'        " Displays tags in a window; ordered by scope
+Plugin 'scrooloose/nerdtree'      " File tree plugin for Vim
+Plugin 'scrooloose/syntastic'     " Syntax checking
+Plugin 'tpope/vim-vinegar'        " Salad dressing for netrw
+Plugin 'tpope/vim-commentary'     " tpope's comments plugin
+Plugin 'tpope/vim-surround'       " Quoting/parenthesizing made simple
+Plugin 'dyng/ctrlsf.vim'          " Powerful code search/view tool
+
+" Language support
+Plugin 'itspriddle/vim-marked'    " Open current file in Marked
+Plugin 'junegunn/goyo.vim'        " Distraction free writing
+Plugin 'godlygeek/tabular'        " Required by vim-markdown
+Plugin 'chemzqm/vim-jsx-improve'  " Improved React/JSX support
+Plugin 'reedes/vim-pencil'        " Prose-writing plugin
+
+" Misc plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'sickill/vim-monokai'
+Plugin 'tpope/vim-fugitive'       " Tim Pope's amazing git plugin
+
+" All of your plugins must be added before the following line.
+call vundle#end()			            " required
+
+" ========== GENERAL CONFIG ===========
+
+set number			                  " Line numbers, for great justice
+set backspace=indent,eol,start	  " Allow backspace in insert mode
+set history=1000		              " Store lots of :cmdline history
+set showcmd			                  " Show incomplete cmds down at the bottom
+set showmode			                " Show current mode down at the bottom
+set gcr=a:blinkon0		            " Disable cursor blink
+set visualbell			              " No sounds
+set autoread			                " Reload files changed outside vim
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
+set hidden
+
+" Turn on syntax highlighting.
+syntax on
+
+" Show x number of lines before or after the cursor when scrolling
+" up and down the page.
+set so=7
+
+" Toggle paste mode to get rid of goofy auto indenting when pasting.
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+" Set spelling & language
+"set spell spelllang=en_us
+
+" ========== TURN OFF SWAP FILES ==========
+
+set noswapfile
+set nobackup
+set nowb
+
+" ========== INDENTATION ===========
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+
+" ========== FILE TYPES ==========
+
+filetype plugin on                " Required for Vundle
+filetype indent on                " Required for Vundle
+
+" Tell Vim to use php syntax highlighting for Drupal's *.install files.
+au BufNewFile,BufRead *.install set filetype=php
+
+" ========== WORD WRAP ==========
+
+set nowrap                        " Don't wrap lines
+set linebreak                     " Wrap linees at convenient points
+
+" ========== SEARCH ==========
+
+set ignorecase smartcase
+set incsearch
+set hlsearch
+
+" ========== STATUS LINE ==========
+
+set laststatus=2
+set statusline=%m                 " Modified flag
+set statusline+=%r                " Readonly flag
+set statusline+=\                 " Space
+set statusline+=%<                " Truncate on the left side of text if too long
+set statusline+=%t                " File name (Tail)
+set statusline+=%=                " Right align
+set statusline+=%w                " Preview window flag
+set statusline+=%h                " Help buffer flag
+set statusline+=%y                " Type of file
+set statusline+=\                 " Space
+set statusline+=(%l/%L,\ %c)      " Current position and line count
+set statusline+=\                 " Space
+set statusline+=%P                " Percent
+set statusline+=\                 " Space for padding on right side
+
+" ========== COLORS ===========
+
+set background=dark
+colorscheme solarized
+
+" ========== AIRLINE ==========
+
+let g:airline_powerline_fonts=1   " use airline with powerline fonts
+
+" ========== CTRL+P ==========
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" ========== GITGUTTER ==========
+
+hi clear SignColumn               " Use no background color for GitGutter
+
+" ========== NERDTREE ==========
+
+let NERDTreeMinimalUI=1
+let NERDTreeHijackNetrw=0
+
+" ========== SYNTASTIC ===========
+
+" Tell Syntastic to use the Drupal coding standards instaed of PHP's defaults.
+let g:syntastic_php_phpcs_args=" --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme'"
+
+" ========== CLIPBOARD ==========
+
+set clipboard=unnamed
+
+" ========== MARKDOWN ==========
+
+" Marked App plugin.
+let g:marked_app = "Marked"
+
+" Associate the *.md extension with Markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" =========== CTAGS & TAGBAR ===========
+nnoremap <leader>l :TagbarToggle<CR>
+set tags=./tags;
+
+" ======= Tabs ========================
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
