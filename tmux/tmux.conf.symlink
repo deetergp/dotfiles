@@ -6,7 +6,7 @@
 #
 
 # remap prefix to Control + a
-set -g prefix C-Space
+set -g prefix C-a
 unbind-key C-b
 
 # Set the delay so tmux is much more responsive
