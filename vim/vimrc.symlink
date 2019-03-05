@@ -55,6 +55,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kchmck/vim-coffee-script' " Syntax highlighting for CoffeeScript
 Plugin 'kien/ctrlp.vim'           " Easily open files
+Plugin 'ludovicchabant/vim-gutentags' " Take care of tag management
 Plugin 'majutsushi/tagbar'        " Displays tags in a window; ordered by scope
 Plugin 'scrooloose/nerdtree'      " File tree plugin for Vim
 Plugin 'scrooloose/syntastic'     " Syntax checking
@@ -74,6 +75,7 @@ Plugin 'reedes/vim-pencil'        " Prose-writing plugin
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'sickill/vim-monokai'
 Plugin 'tpope/vim-fugitive'       " Tim Pope's amazing git plugin
+Plugin 'tpope/vim-rhubarb'        " Allows vim-fugitive to open GitHub
 
 " All of your plugins must be added before the following line.
 call vundle#end()			            " required
