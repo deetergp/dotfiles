@@ -5,7 +5,8 @@
 "   http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 "   http://www.drbunsen.org/the-text-triumvirate/
 "   https://github.com/jlong/tilde/blob/master/.vimrc
-
+"   https://github.com/cead22/dotfiles
+"
 " ========== INSTALLATION ===========
 "
 " To install these Vundle packages, follow these steps:
@@ -166,7 +167,6 @@ set statusline+=\                 " Space for padding on right side
 
 " ========== COLORS ===========
 
-set background=dark
 colorscheme solarized
 
 " ========== AIRLINE ==========
