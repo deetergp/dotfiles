@@ -1,8 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+if [ -d "/Users/scott" ]; then
+    HOMEDIR="/Users/scott/"
+else
+    HOMEDIR="/Users/deetergp/"
+fi
+
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/deetergp/.oh-my-zsh"
+export ZSH="$HOMEDIR.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -98,4 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 . ~/.zsh_aliases
-. ~/.zsh_aliases_work
+WORK_ZSHRC=$HOMEDIR.zsh_aliases_work
+if [ -f "$WORK_ZSHRC" ]; then
+    . $WORK_ZSHRC
+fi
