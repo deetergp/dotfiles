@@ -108,3 +108,7 @@ WORK_ZSHRC=$HOMEDIR.zsh_aliases_work
 if [ -f "$WORK_ZSHRC" ]; then
     . $WORK_ZSHRC
 fi
+. ~/.zsh_aliases_work
+
+export PATH="/usr/local/opt/php@7.2/bin:$PATH"
+export PATH="/usr/local/opt/php@7.2/sbin:$PATH"
