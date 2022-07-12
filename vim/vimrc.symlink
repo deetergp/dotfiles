@@ -54,11 +54,7 @@ Plugin 'gmarik/Vundle.vim'        " Let Vundle manage Vundle (required)
 Plugin 'airblade/vim-gitgutter'   " Keep track changes in git
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kchmck/vim-coffee-script' " Syntax highlighting for CoffeeScript
 Plugin 'kien/ctrlp.vim'           " Easily open files
-Plugin 'ludovicchabant/vim-gutentags' " Take care of tag management
-Plugin 'majutsushi/tagbar'        " Displays tags in a window; ordered by scope
-Plugin 'scrooloose/nerdtree'      " File tree plugin for Vim
 Plugin 'scrooloose/syntastic'     " Syntax checking
 Plugin 'tpope/vim-vinegar'        " Salad dressing for netrw
 Plugin 'tpope/vim-commentary'     " tpope's comments plugin
@@ -66,14 +62,10 @@ Plugin 'tpope/vim-surround'       " Quoting/parenthesizing made simple
 Plugin 'dyng/ctrlsf.vim'          " Powerful code search/view tool
 
 " Language support
-Plugin 'itspriddle/vim-marked'    " Open current file in Marked
 Plugin 'junegunn/goyo.vim'        " Distraction free writing
-Plugin 'godlygeek/tabular'        " Required by vim-markdown
 Plugin 'chemzqm/vim-jsx-improve'  " Improved React/JSX support
-Plugin 'reedes/vim-pencil'        " Prose-writing plugin
 
 " Misc plugins
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'sickill/vim-monokai'
 Plugin 'tpope/vim-fugitive'       " Tim Pope's amazing git plugin
 Plugin 'tpope/vim-rhubarb'        " Allows vim-fugitive to open GitHub
@@ -167,7 +159,7 @@ set statusline+=\                 " Space for padding on right side
 
 " ========== COLORS ===========
 
-colorscheme solarized
+"colorscheme solarized
 
 " ========== AIRLINE ==========
 
@@ -186,12 +178,13 @@ hi clear SignColumn               " Use no background color for GitGutter
 " ========== NERDTREE ==========
 
 let NERDTreeMinimalUI=1
-let NERDTreeHijackNetrw=0
+let NERDTreeHijackNetrw=1
+let g:NERDTreeWinSize=60
 
 " ========== SYNTASTIC ===========
 
 " Tell Syntastic to use the Drupal coding standards instaed of PHP's defaults.
-let g:syntastic_php_phpcs_args=" --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme'"
+"let g:syntastic_php_phpcs_args=" --standard=Drupal,DrupalPractice --extensions='php,module,inc,install,test,profile,theme'"
 
 " ========== CLIPBOARD ==========
 
@@ -212,3 +205,9 @@ set tags=./tags;
 " ======= Tabs ========================
 nnoremap <C-h> :tabprevious<CR>
 nnoremap <C-l> :tabnext<CR>
+
+" ==== FOLDING ====
+"set foldmethod=indent
+"set foldnestmax=10
+"set nofoldenable
+"set foldlevel=2
