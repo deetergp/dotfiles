@@ -25,4 +25,4 @@ The general layout of this repo and `bootstrap` script came from [pengwynn's dot
 
 ## Spreading the Love ##
 
-I get tons of inspiration and ideas from my good friends [Mark Shropshire](https://github.com/shrop/) & [Mark Bellaire](https://github.com/mgbellaire). Together, we run [SellDevel](http://shelldevel.net) where we share with the world the stuff we used to just geek out about on our own. If you'd like semi-regualr tips on developing at the command line, check it out at [shelldevel.net](http://shelldevel.net) or follow us on Twitter at [@shelldevel](http://twitter.com/shelldevel).
+I get tons of inspiration and ideas from my good friends [Mark Shropshire](https://github.com/shrop/) & [Mark Bellaire](https://github.com/mgbellaire). Together, we run [ShellDevel](http://shelldevel.net) where we share with the world the stuff we used to just geek out about on our own. If you'd like semi-regualr tips on developing at the command line, check it out at [shelldevel.net](http://shelldevel.net) or follow us on Twitter at [@shelldevel](http://twitter.com/shelldevel).
